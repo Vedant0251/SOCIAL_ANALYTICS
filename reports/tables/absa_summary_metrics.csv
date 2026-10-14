@@ -1,0 +1,6 @@
+Metric,Value
+Aspect Retrieval Hit Rate,0.632
+Macro Precision,0.2781
+Macro Recall,0.2396
+Macro F1,0.237
+Weighted F1,0.4271

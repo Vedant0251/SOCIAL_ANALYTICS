@@ -1,0 +1,5 @@
+Strategic Initiative,Target Problem,Expected Impact,Implementation Effort,Cost / Feasibility,Priority
+Real-Time Flight Irregularity Auto-Rebooking,Top complaint driver: Customer Service Issue (31.7% volume),High (Estimated 35% reduction in public negative viral posts),Medium (API integration with reservation engine),"High ROI ($1.2M CapEx, 4-month payback)",P1 - Immediate
+Social Listening Triage for High-PageRank Influencers,"Echo-chamber viral risks (Modularity: 0.28, Homophily: 1.99)",High (Prevents viral brand crisis escalation),Low (Webhooks & alerting routing to senior PR team),Very High ($150k OpEx / year),P1 - Immediate
+Baggage Tracking & IoT Notification Engine,Second vital few complaint driver (Baggage handling deficits),Medium (20% increase in post-flight CSAT),High (Ramp and ground handling RFID infrastructure),Moderate ($4.5M CapEx over 18 months),P2 - Medium Term
+Dedicated Regional Support Desks,Geographic complaint hotspots in East & Midwest transport hubs,Medium (Reduces response latency from 4.5h to 22m),Low (Virtual shift re-allocation),High (Operational realignment),P2 - Medium Term

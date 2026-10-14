@@ -1,0 +1,4 @@
+method,outliers_found,percentage_of_data,thresholds
+IQR (1.5x),767,5.24,"[0.0, 0.0]"
+Z-Score (|z| > 3),61,0.42,"|z| > 3 (Mean: 0.08, Std: 0.75)"
+Isolation Forest (1% Contamination),124,1.0,Multivariate (retweet_count + airline_sentiment_confidence)

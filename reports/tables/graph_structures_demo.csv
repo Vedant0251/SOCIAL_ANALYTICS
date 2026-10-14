@@ -1,0 +1,7 @@
+Source,Target,Weight,Type
+UserA,TechReviewer,5,retweet
+UserB,AirlineHelp,3,complaint
+UserB,UserC,4,retweet
+UserC,AirlineHelp,1,complaint
+AirlineHelp,UserB,2,resolution
+TechReviewer,AirlineHelp,1,inquiry

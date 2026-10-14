@@ -1,0 +1,10 @@
+region,total_volume,avg_sentiment,negative_count,top_complaint,complaint_rate
+Alaska,94,-0.5,62,Customer Service Issue,66.0
+Atlantic,470,-0.46170212765957447,287,Customer Service Issue,61.1
+Exact Coordinates Point,1019,-0.478900883218842,663,Customer Service Issue,65.1
+Hawaii,98,-0.42857142857142855,58,Customer Service Issue,59.2
+International,945,-0.5312169312169313,624,Customer Service Issue,66.0
+Midwest / Central,1771,-0.4268774703557312,1081,Customer Service Issue,61.0
+Mountain West,337,-0.44510385756676557,209,Customer Service Issue,62.0
+Northeast / East,3443,-0.4388614580307871,2118,Customer Service Issue,61.5
+West Coast,1088,-0.39981617647058826,640,Customer Service Issue,58.8

@@ -1,0 +1,4 @@
+Category,Entity_A,Entity_B,Volume_A,Volume_B,NSS_A,NSS_B,Chi2_Stat,Chi2_p_val,Cramers_V,Mann_Whitney_U,MW_p_val,Significant
+E-Commerce,Amazon,Myntra,99000,36000,-13.95,-50.67,4342.173,0.0000e+00,0.179,2223003439.5,0.0000e+00,True
+Aviation (India),IndiGo,Air India,490,110,1.43,-64.55,45.45,1.3512e-10,0.275,37693.0,7.4829e-12,True
+Consumer Tech,Apple,Samsung,5145,33629,38.0,42.41,15.235,4.9176e-04,0.02,85036330.5,2.9318e-02,True
