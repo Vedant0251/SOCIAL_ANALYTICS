@@ -148,25 +148,44 @@ st.markdown("""
         font-weight: 600 !important;
     }
     
-    /* Sticky Floating Top Navigation Bar */
+    /* ============================================================
+       PREMIUM UNIFIED STICKY NAV BAR
+       (pill row + in-this-view strip as one fused block)
+    ============================================================ */
+
+    /* Outer wrapper for the whole fused nav block */
+    .nav-block-wrapper {
+        position: sticky !important;
+        top: 0.4rem !important;
+        z-index: 9999 !important;
+        margin-bottom: 22px !important;
+    }
+
+    /* Pill row — flat bottom edge so it connects to the strip */
     div[data-testid="stRadio"] > div[role="radiogroup"] {
         display: flex !important;
         flex-direction: row !important;
-        flex-wrap: wrap !important;
+        flex-wrap: nowrap !important;
         justify-content: center !important;
-        gap: 8px !important;
-        background: #090e1a !important;
-        padding: 10px 14px !important;
-        border-radius: 14px !important;
-        border: 1.5px solid #0284c7 !important;
-        margin-bottom: 24px !important;
+        align-items: stretch !important;
+        gap: 6px !important;
+        background: linear-gradient(180deg, #0c1428 0%, #080e1c 100%) !important;
+        padding: 10px 16px 10px !important;
+        border-radius: 16px 16px 0 0 !important;
+        border-top: 1px solid rgba(56, 189, 248, 0.22) !important;
+        border-left: 1px solid rgba(56, 189, 248, 0.12) !important;
+        border-right: 1px solid rgba(56, 189, 248, 0.12) !important;
+        border-bottom: 1px solid rgba(56, 189, 248, 0.06) !important;
+        margin-bottom: 0 !important;
         position: sticky !important;
-        top: 0.5rem !important;
+        top: 0.4rem !important;
         z-index: 9999 !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(2, 132, 199, 0.3) !important;
+        box-shadow: 0 -1px 0 0 rgba(56, 189, 248, 0.1) inset, 0 4px 24px rgba(0, 0, 0, 0.8) !important;
+        backdrop-filter: blur(14px) !important;
+        -webkit-backdrop-filter: blur(14px) !important;
     }
-    
-    /* Completely Hide Only The Radio Circle Dots & Radio Inputs */
+
+    /* Hide Radio Input Dots */
     div[data-testid="stRadio"] div[role="radiogroup"] label input[type="radio"],
     div[data-testid="stRadio"] div[role="radiogroup"] label input[type="radio"] + div,
     div[data-testid="stRadio"] div[role="radiogroup"] label > div:first-of-type,
@@ -180,56 +199,89 @@ st.markdown("""
         opacity: 0 !important;
         pointer-events: none !important;
     }
-    
-    /* Navigation Buttons - Inactive State */
+
+    /* Nav Pills — Inactive */
     div[data-testid="stRadio"] div[role="radiogroup"] label {
-        background: #1e293b !important;
-        border: 1.5px solid #38bdf8 !important;
-        border-radius: 10px !important;
-        padding: 10px 18px !important;
+        background: transparent !important;
+        border: 1px solid rgba(56, 189, 248, 0.15) !important;
+        border-radius: 11px !important;
+        padding: 8px 13px !important;
         cursor: pointer !important;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1) !important;
         margin: 0 !important;
         display: inline-flex !important;
+        flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
+        gap: 3px !important;
+        min-width: 80px !important;
+        position: relative !important;
+        overflow: hidden !important;
     }
-    div[data-testid="stRadio"] div[role="radiogroup"] label,
-    div[data-testid="stRadio"] div[role="radiogroup"] label *,
+    div[data-testid="stRadio"] div[role="radiogroup"] label::after {
+        content: '' !important;
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 50% !important;
+        transform: translateX(-50%) scaleX(0) !important;
+        width: 60% !important;
+        height: 2px !important;
+        background: linear-gradient(90deg, #38bdf8, #818cf8) !important;
+        border-radius: 2px 2px 0 0 !important;
+        transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    /* All text inside pills */
+    div[data-testid="stRadio"] div[role="radiogroup"] label div[data-testid="stMarkdownContainer"],
     div[data-testid="stRadio"] div[role="radiogroup"] label div[data-testid="stMarkdownContainer"] p {
-        color: #ffffff !important;
-        font-size: 13.5px !important;
-        font-weight: 700 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 2px !important;
         margin: 0 !important;
         padding: 0 !important;
+        width: 100% !important;
+    }
+    div[data-testid="stRadio"] div[role="radiogroup"] label,
+    div[data-testid="stRadio"] div[role="radiogroup"] label * {
+        color: #94a3b8 !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        margin: 0 !important;
         white-space: nowrap !important;
-        line-height: 1.4 !important;
+        line-height: 1.35 !important;
         visibility: visible !important;
         opacity: 1 !important;
+        text-align: center !important;
     }
+
+    /* Hover State */
     div[data-testid="stRadio"] div[role="radiogroup"] label:hover {
-        background: #0284c7 !important;
-        border-color: #7dd3fc !important;
-        transform: translateY(-2px) !important;
-        box-shadow: 0 4px 16px rgba(56, 189, 248, 0.45) !important;
+        background: rgba(56, 189, 248, 0.08) !important;
+        border-color: rgba(56, 189, 248, 0.4) !important;
+        transform: translateY(-1px) !important;
     }
     div[data-testid="stRadio"] div[role="radiogroup"] label:hover,
     div[data-testid="stRadio"] div[role="radiogroup"] label:hover * {
-        color: #ffffff !important;
+        color: #e2e8f0 !important;
     }
-    
-    /* Navigation Buttons - Active / Selected State */
+
+    /* Active / Selected State */
     div[data-testid="stRadio"] div[role="radiogroup"] label[data-checked="true"],
     div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked) {
-        background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%) !important;
-        border: 2px solid #ffffff !important;
-        box-shadow: 0 0 18px rgba(56, 189, 248, 0.7) !important;
+        background: linear-gradient(145deg, rgba(2, 132, 199, 0.22) 0%, rgba(37, 99, 235, 0.18) 100%) !important;
+        border: 1px solid rgba(56, 189, 248, 0.55) !important;
+        box-shadow: 0 0 14px rgba(56, 189, 248, 0.25), inset 0 1px 0 rgba(255,255,255,0.06) !important;
         transform: translateY(-1px) !important;
+    }
+    div[data-testid="stRadio"] div[role="radiogroup"] label[data-checked="true"]::after,
+    div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked)::after {
+        transform: translateX(-50%) scaleX(1) !important;
     }
     div[data-testid="stRadio"] div[role="radiogroup"] label[data-checked="true"] *,
     div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked) * {
         color: #ffffff !important;
-        font-weight: 800 !important;
+        font-weight: 700 !important;
     }
 
     /* Web Application Section Cards */
@@ -331,6 +383,65 @@ st.markdown("""
         font-size: 14px !important;
         color: #f1f5f9 !important;
         line-height: 1.45 !important;
+    }
+
+    /* Tab Context Strip — fused to pill row above */
+    .tab-context-strip {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        gap: 7px !important;
+        padding: 7px 18px 9px !important;
+        margin-top: 0 !important;
+        margin-bottom: 22px !important;
+        background: linear-gradient(180deg, #080e1c 0%, #060b18 100%) !important;
+        border-left: 1px solid rgba(56, 189, 248, 0.12) !important;
+        border-right: 1px solid rgba(56, 189, 248, 0.12) !important;
+        border-bottom: 1px solid rgba(56, 189, 248, 0.18) !important;
+        border-top: none !important;
+        border-radius: 0 0 16px 16px !important;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7) !important;
+        backdrop-filter: blur(14px) !important;
+        -webkit-backdrop-filter: blur(14px) !important;
+        animation: stripFadeIn 0.25s ease !important;
+    }
+    @keyframes stripFadeIn {
+        from { opacity: 0.4; }
+        to   { opacity: 1; }
+    }
+    .tab-context-label {
+        font-size: 10px !important;
+        font-weight: 700 !important;
+        color: #334155 !important;
+        letter-spacing: 0.9px !important;
+        text-transform: uppercase !important;
+        margin-right: 6px !important;
+        white-space: nowrap !important;
+        padding-right: 6px !important;
+        border-right: 1px solid rgba(56, 189, 248, 0.15) !important;
+    }
+    .tab-context-badge {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+        background: rgba(15, 23, 42, 0.9) !important;
+        border: 1px solid rgba(56, 189, 248, 0.14) !important;
+        border-radius: 20px !important;
+        padding: 2px 9px 2px 7px !important;
+        font-size: 11px !important;
+        font-weight: 600 !important;
+        color: #64748b !important;
+        white-space: nowrap !important;
+        transition: color 0.15s ease, border-color 0.15s ease !important;
+    }
+    .tab-context-badge:hover {
+        color: #94a3b8 !important;
+        border-color: rgba(56, 189, 248, 0.3) !important;
+    }
+    .tab-context-badge span.icon {
+        font-size: 11px !important;
+        line-height: 1 !important;
+        opacity: 0.75 !important;
     }
     .swatch-box {
         width: 20px !important;
@@ -599,16 +710,18 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Sticky Floating Top Navigation Bar
+# Sticky Navigation Bar — icon · label · one-word descriptor badge
+# The nav labels are structured as: ICON TITLE\nDESCRIPTOR
+# The \n causes Streamlit to render a second line inside the pill.
 NAV_BAR_TABS = [
-    "📊 Executive Overview",
-    "⚔️ Competitor Comparison",
-    "📐 Feature Intelligence & Studio",
-    "🎯 Aspect Sentiment & Deep ML",
-    "🗺️ Geospatial Intelligence",
-    "🕸️ Network Dynamics & Echo-Chambers",
-    "🕷️ Web Scraping & REST APIs",
-    "📑 Strategic Case Study",
+    "📊 Overview · KPIs",
+    "⚔️ Competitors · Stats",
+    "📐 Features · Studio",
+    "🎯 Sentiment · ABSA",
+    "🗺️ Geospatial · Maps",
+    "🕸️ Networks · Graphs",
+    "🕷️ Scrapers · APIs",
+    "📑 Strategy · Report",
 ]
 
 active_page = st.radio(
@@ -618,11 +731,88 @@ active_page = st.radio(
     label_visibility="collapsed",
 )
 
+# -----------------------------------------------------------------------
+# TAB CONTEXT STRIP — dynamic badge row showing what's inside active tab
+# -----------------------------------------------------------------------
+TAB_CONTENT: dict[str, list[tuple[str, str]]] = {
+    "📊 Overview · KPIs": [
+        ("📊", "Net Sentiment Score"),
+        ("✈️", "6-Airline KPIs"),
+        ("📈", "Sentiment Trends"),
+        ("🎯", "Pareto 80/20 Drivers"),
+        ("📢", "Voice Share"),
+    ],
+    "⚔️ Competitors · Stats": [
+        ("⚔️", "Brand Pair Selector"),
+        ("🧮", "Chi-Square Test"),
+        ("📊", "NSS Differential"),
+        ("🔊", "Voice Share %"),
+        ("🔍", "Aspect Divergence"),
+    ],
+    "📐 Features · Studio": [
+        ("🧠", "Auto Schema Classifier"),
+        ("🟧", "Cramér's V Heatmap"),
+        ("📌", "Outlier Detection"),
+        ("📉", "Seasonal Trends"),
+        ("📊", "Plotly Studio"),
+    ],
+    "🎯 Sentiment · ABSA": [
+        ("🤖", "RoBERTa (GPU)"),
+        ("📏", "8-Aspect Matrix"),
+        ("📈", "ROC & PR Curves"),
+        ("🔬", "Confusion Matrix"),
+        ("✍️", "Live Text Tester"),
+    ],
+    "🗺️ Geospatial · Maps": [
+        ("🗺️", "Folium MarkerCluster"),
+        ("🔥", "Complaint HeatMap"),
+        ("📍", "Exact GPS 7.6%"),
+        ("🌎", "Regional Breakdown"),
+        ("📊", "Plotly Scatter Geo"),
+    ],
+    "🕸️ Networks · Graphs": [
+        ("🕸️", "PyVis Echo-Chambers"),
+        ("⭐", "PageRank Top-N"),
+        ("📊", "Louvain Communities"),
+        ("📏", "Modularity Q=0.28"),
+        ("📊", "Adjacency Matrix"),
+    ],
+    "🕷️ Scrapers · APIs": [
+        ("🕷️", "BeautifulSoup Sandbox"),
+        ("⚡", "Scrapy Spider"),
+        ("📡", "Hacker News API"),
+        ("✅", "robots.txt Guard"),
+        ("📄", "Live CSV Export"),
+    ],
+    "📑 Strategy · Report": [
+        ("🎯", "Action Matrix P1–P2"),
+        ("📝", "Executive MD Report"),
+        ("📋", "Decision Matrix CSV"),
+        ("📉", "KPI Targets"),
+        ("🛡️", "Mitigation Blueprint"),
+    ],
+}
+
+_strip_items = TAB_CONTENT.get(active_page, [])
+_badges_html = "".join(
+    f'<span class="tab-context-badge"><span class="icon">{ico}</span>{lbl}</span>'
+    for ico, lbl in _strip_items
+)
+st.markdown(
+    f"""
+    <div class="tab-context-strip">
+        <span class="tab-context-label">In this view —</span>
+        {_badges_html}
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
 
 # =====================================================================
 # VIEW 1: EXECUTIVE OVERVIEW
 # =====================================================================
-if active_page == "📊 Executive Overview":
+if active_page == "📊 Overview · KPIs":
     st.markdown("""
     <div class="app-card">
         <div class="app-card-header">
@@ -754,7 +944,7 @@ if active_page == "📊 Executive Overview":
 # =====================================================================
 # VIEW 2: COMPETITOR COMPARISON (DEDICATED SEPARATE TAB)
 # =====================================================================
-elif active_page == "⚔️ Competitor Comparison":
+elif active_page == "⚔️ Competitors · Stats":
     st.markdown("""
     <div class="app-card">
         <div class="app-card-header">
@@ -956,7 +1146,7 @@ elif active_page == "⚔️ Competitor Comparison":
 # =====================================================================
 # VIEW 3: FEATURE INTELLIGENCE & VISUAL STUDIO
 # =====================================================================
-elif active_page == "📐 Feature Intelligence & Studio":
+elif active_page == "📐 Features · Studio":
     st.markdown(f"""
     <div class="app-card">
         <div class="app-card-header">
@@ -1089,7 +1279,7 @@ elif active_page == "📐 Feature Intelligence & Studio":
 # =====================================================================
 # VIEW 4: ASPECT SENTIMENT & DEEP ML (WITH COLOR SCALE GUIDE)
 # =====================================================================
-elif active_page == "🎯 Aspect Sentiment & Deep ML":
+elif active_page == "🎯 Sentiment · ABSA":
     st.markdown("""
     <div class="app-card">
         <div class="app-card-header">
@@ -1237,7 +1427,7 @@ elif active_page == "🎯 Aspect Sentiment & Deep ML":
 # =====================================================================
 # VIEW 5: GEOSPATIAL INTELLIGENCE
 # =====================================================================
-elif active_page == "🗺️ Geospatial Intelligence":
+elif active_page == "🗺️ Geospatial · Maps":
     st.markdown("""
     <div class="app-card">
         <div class="app-card-header">
@@ -1282,7 +1472,7 @@ elif active_page == "🗺️ Geospatial Intelligence":
 # =====================================================================
 # VIEW 6: NETWORK DYNAMICS & ECHO-CHAMBERS
 # =====================================================================
-elif active_page == "🕸️ Network Dynamics & Echo-Chambers":
+elif active_page == "🕸️ Networks · Graphs":
     st.markdown("""
     <div class="app-card">
         <div class="app-card-header">
@@ -1328,7 +1518,7 @@ elif active_page == "🕸️ Network Dynamics & Echo-Chambers":
 # =====================================================================
 # VIEW 7: WEB SCRAPING & REST APIS
 # =====================================================================
-elif active_page == "🕷️ Web Scraping & REST APIs":
+elif active_page == "🕷️ Scrapers · APIs":
     st.markdown("""
     <div class="app-card">
         <div class="app-card-header">
@@ -1384,7 +1574,7 @@ elif active_page == "🕷️ Web Scraping & REST APIs":
 # =====================================================================
 # VIEW 8: STRATEGIC CASE STUDY
 # =====================================================================
-elif active_page == "📑 Strategic Case Study":
+elif active_page == "📑 Strategy · Report":
     st.markdown("""
     <div class="app-card">
         <div class="app-card-header">

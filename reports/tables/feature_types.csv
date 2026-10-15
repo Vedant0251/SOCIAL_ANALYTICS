@@ -1,7 +1,7 @@
 column_name,detected_type,sample_value,unique_values,recommended_visualization,rationale
-tweet_id,Discrete Numeric,101,3,Histogram / Frequency Bar,Count variables with bounded integer ranges are best represented via discrete binning.
-sentiment,Datetime,negative,3,Time Series Line Chart with Rolling Average,Temporal sequences require continuous trend lines and decomposition to observe seasonality and drift.
-is_verified,Binary,True,2,Donut Chart / Grouped Bar,Two-state distributions are best visualized via proportional share or side-by-side grouped counts.
-rating_score,Ordinal,1.5,3,Likert Bar / Density Violin Plot,Discrete rating scales are best compared via score distribution distributions.
-created_at,Datetime,2026-02-15 10:00:00,3,Time Series Line Chart with Rolling Average,Temporal sequences require continuous trend lines and decomposition to observe seasonality and drift.
-comment_text,Nominal,This flight was horribly late and my ...,3,Bar Chart / Treemap (Categorical Count),Unordered discrete categories are most legibly compared via sorted bar lengths or area shares.
+index,Nominal,5.74948705591165E+017,16851,Bar Chart / Treemap (Categorical Count),Unordered discrete categories are most legibly compared via sorted bar lengths or area shares.
+id,Nominal,5.74948705591165E+017,16850,Bar Chart / Treemap (Categorical Count),Unordered discrete categories are most legibly compared via sorted bar lengths or area shares.
+Text,Free Text,@halalflaws @biebervalue @greenlinerz...,16850,Word Frequency Bar / N-Gram Horizon / Word Cloud,High-cardinality unstructured strings require tokenization and frequency-rank reduction.
+Annotation,Nominal,none,3,Bar Chart / Treemap (Categorical Count),Unordered discrete categories are most legibly compared via sorted bar lengths or area shares.
+oh_label,Binary,0.0,2,Donut Chart / Grouped Bar,Two-state distributions are best visualized via proportional share or side-by-side grouped counts.
+clean_text,Free Text,i read them in context.no change in m...,16485,Word Frequency Bar / N-Gram Horizon / Word Cloud,High-cardinality unstructured strings require tokenization and frequency-rank reduction.
